@@ -1,0 +1,12 @@
+<h1>All users </h1>
+<table style="width:100%">
+
+<% @users.each do |user| %>
+<tr>
+    <td><a href="users/<%= user.username %>"><%= user.username %></a></td>
+    <td>
+ </tr>
+
+<% end %>
+</table>
+be

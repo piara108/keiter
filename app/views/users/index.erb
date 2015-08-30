@@ -1,0 +1,77 @@
+<h1><%=@user.username%> World</h1>
+<h3><%=@user.first_name%> <%=@user.last_name%></h3>
+
+
+<% if session[:user_id] != nil && session[:user_id] != @user.id  && current_user.followings.include?(User.find_by(username: params[:username])) == true %>
+
+ <h4><%=@user.email%></h4>
+ <h4><%=@user.phone_number%></h4>
+
+<% end %>
+
+<br>
+
+<h2>My Keits</h2>
+
+<ul>
+  <% if @keit != nil %>
+    <% @keit.each do |keit| %>
+      <li><%=keit.text%></li>
+    <% end %>
+  <% else %>
+    <p> Post a keit you fucker </p>
+  <% end %>
+</ul>
+
+
+<% if session[:user_id] != nil && session[:user_id] == @user.id %>
+
+  <form action="/keits" method="post">
+    <div><input type="text" name="text" placeholder="write your Keit"></div>
+    <div><input type="submit"></div>
+  </form>
+
+  <div><a href="/users/profile">Wanna check/update your Keit profile</a></div>
+
+<% end %>
+
+
+<% if session[:user_id] != nil && session[:user_id] != @user.id  && current_user.followings.include?(User.find_by(username: params[:username])) == false %>
+
+  <form action="/users/<%=@user.username%>" method="post">
+    <div><input type="submit" value="Keit Me"></div>
+  </form>
+
+<% end %>
+
+
+<button><a href="/users/profile/relationships">See your relationships</a></button>
+
+<br>
+
+<br>
+<h2>News Feed!</h2><br>
+<table>
+<% @followings.each do |following| %>
+  <% following.keits.each do |keit| %>
+
+<tr>
+  <td>
+      <%= following.username %>:
+  </td>
+  <td>
+    <%= keit.text %>
+  </td>
+   <td>
+    <%= keit.updated_at %>
+  </td>
+
+ </tr>
+
+ <% end %>
+
+<% end %>
+</table>
+
+
+<br>
