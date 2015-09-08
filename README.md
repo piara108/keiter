@@ -19,6 +19,15 @@ rake generate:migration  # Create an empty migration in db/migrate, e.g., rake g
 rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
 ```
 
+Team Members:
+  - Spenser Huang
+  - Piara Sandhu
+  - Kei Oka
+  - Nate Lee
+  - Josh Croff
+  - Benoit Demonsant
+  - Staunton Sample
+
 ### Contributing
 
 We would love for you to help make the skeleton more awesome, There are three ways to contribute:
