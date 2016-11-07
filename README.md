@@ -1,6 +1,6 @@
 #Keiter
 
-Keiter is a social media site that allows users to post microposts, to follow users and be followed by other users.
+Keiter is a social media app that allows users to write microposts, to follow users and be followed by other users similar to Twitter.
 
 
 ### Quickstart
